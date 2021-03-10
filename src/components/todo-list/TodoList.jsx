@@ -16,13 +16,19 @@ class TodoList extends Component {
     handleNewItemSubmit = (e) => {
         e.preventDefault()
         this.setState((prevState, props) => {
-            const newItemData = {
-                task: prevState.newItemInput
-            }
             return {
-                taskArray: [...prevState.taskArray, newItemData]
+                taskArray: [...prevState.taskArray, this.state.newItemInput]
             }
         }, () => this.setState({ newItemInput: '' }))
+    }
+    handleDeleteItem = (index) => {
+        this.setState((prevState) => {
+            let newTaskArray = [...prevState.taskArray]
+            newTaskArray.splice(index, 1)
+            return{
+                taskArray: newTaskArray
+            }
+        })
     }
     handleClearList = () => {
         this.setState({
@@ -35,6 +41,7 @@ class TodoList extends Component {
                 <ListItem 
                 key={`task ${index}`}
                 task={placeHolderTask.task}
+                handleDeleteItem={() => { this.handleDeleteItem(index) }}
                 />
             )
         })

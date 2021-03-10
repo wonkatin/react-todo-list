@@ -5,6 +5,7 @@ class ListItem extends Component {
         return (
             <div>
                 <li>{this.props.task}</li>
+                <button onClick={this.props.handleDeleteItem}>Delete</button>
             </div>
         )
     }
