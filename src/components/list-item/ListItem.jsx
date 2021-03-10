@@ -1,13 +1,13 @@
 import { Component } from 'react'
 
-class ListItems extends Component {
+class ListItem extends Component {
     render () {
         return (
             <div>
-                <li>Make the list!</li>
+                <li>{this.props.task}</li>
             </div>
         )
     }
 }
 
-export default ListItems;
+export default ListItem;
