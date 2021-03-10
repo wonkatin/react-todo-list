@@ -17,7 +17,7 @@ class TodoList extends Component {
         e.preventDefault()
         this.setState((prevState, props) => {
             return {
-                taskArray: [...prevState.taskArray, this.state.newItemInput]
+                taskArray: [...prevState.taskArray, {task: this.state.newItemInput}]
             }
         }, () => this.setState({ newItemInput: '' }))
     }
